@@ -16,7 +16,7 @@ export default {
   },
   mutations: {
     SET_ORDERS(state, { data }) {
-      state.orderList = data.order
+      state.orderList = data.orders
     },
   },
   actions: {

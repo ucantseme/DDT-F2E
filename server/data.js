@@ -28,6 +28,15 @@ module.exports = {
       date: '108/6/2',
     },
     {
+      name: '贈-短慧萬用鍋HD2133+三合一濾網「LG樂金」韓國原裝...',
+      logo: 'https://static.oopocket.com/store/iconTreemall@3x.png',
+      status: {
+        code: 1,
+        type: '已出貨',
+      },
+      date: '108/6/2',
+    },
+    {
       name: 'Apple AirPds 2',
       logo: 'https://static.oopocket.com/store/iconTreemall@3x.png',
       status: {

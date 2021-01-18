@@ -9,7 +9,11 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'prettier/prettier': [
       'error',
-      { singleQuote: true, semi: false, trailingComma: 'es5' },
+      {
+        singleQuote: true,
+        semi: false,
+        trailingComma: 'es5',
+      },
     ],
   },
   parserOptions: {

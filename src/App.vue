@@ -1,27 +1,54 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <div class="order-list">
+      <OrderListNav text="進行中" />
+      <OrderCard v-for="order in processing" :key="order.id" :order="order" />
+      <OrderListNav text="已完成" />
+      <OrderCard v-for="order in done" :key="order.id" :order="order" />
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import OrderListNav from '@/components/OrderListNav.vue'
+import OrderCard from '@/components/OrderCard.vue'
+import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'app',
   components: {
-    HelloWorld,
+    OrderListNav,
+    OrderCard,
+  },
+  computed: {
+    ...mapGetters('order', ['processing', 'done']),
+  },
+  created() {
+    this.getAllOrder()
+  },
+  methods: {
+    ...mapActions('order', ['getAllOrder']),
   },
 }
 </script>
 
 <style lang="scss">
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.order-list {
+  border-left: 1px solid #e5e5e5;
+  border-right: 1px solid #e5e5e5;
 }
 </style>
